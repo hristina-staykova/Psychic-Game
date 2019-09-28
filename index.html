@@ -11,19 +11,24 @@
 <h1>The Psychic Game</h1>
 <p>Guess what letter I am thinking of!</p>
 
+<p>Wins:</p>
+<p>Losses:</p>
+<p>Guesses left:</p>
+<p>Your guesses so far:</p>
+
 <script>
 
+var wins = 0, losses = 0; attempts = 10;
 var compLetter = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
 var compChoice = compLetter[Math.floor(Math.random()*compLetter.length)];
 
+console.log(wins, losses, attempts);
 console.log(compChoice);
-console.log(compLetter);
 
 document.onkeyup = function (event) {
     var userInput = event.key.toLowerCase();
     console.log(userInput);
 }
-
 
 
 
