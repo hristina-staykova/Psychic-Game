@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Psychic Game</title>
+</head>
+<body>
+
+<h1>The Psychic Game</h1>
+<p>Guess what letter I am thinking of!</p>
+
+<script>
+
+var compLetter = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
+var compChoice = compLetter[Math.floor(Math.random()*compLetter.length)];
+
+console.log(compChoice);
+console.log(compLetter);
+
+document.onkeyup = function (event) {
+    var userInput = event.key.toLowerCase();
+    console.log(userInput);
+}
+
+
+
+
+</script>
+
+
+
+    
+</body>
+</html>
