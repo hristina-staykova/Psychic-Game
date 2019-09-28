@@ -18,19 +18,22 @@
 
 <script>
 
-var wins = 0, losses = 0; attempts = 10;
+var wins = 0, losses = 0; left = 10;
+var attempts = [];
 var compLetter = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
 var compChoice = compLetter[Math.floor(Math.random()*compLetter.length)];
 
-console.log(wins, losses, attempts);
+console.log(wins, losses, left);
 console.log(compChoice);
 
 document.onkeyup = function (event) {
     var userInput = event.key.toLowerCase();
     console.log(userInput);
+    if (!attempts.includes(userInput)) {
+    attempts.push(userInput);
+    }
+    console.log(attempts);
 }
-
-
 
 </script>
 
