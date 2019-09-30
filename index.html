@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psychic Game</title>
 </head>
+
 <body>
 
-<h1>The Psychic Game</h1>
-<p>Guess what letter I am thinking of!</p>
+    <h1>The Psychic Game</h1>
+    <p>Guess what letter I am thinking of!</p>
 
-<p>Wins: <span id="win"></span></p>
-<p>Losses: <span id="loss"></span></p>
-<p>Guesses left: <span id="left"></p>
-<p>Your guesses so far: <span id="user-text"></span></p>
+    <p>Wins: <span id="win"></p>
+    <p>Losses: <span id="loss"></p>
+    <p>Your guesses so far: <span id="user-list"></p>
+    <p>Guesses left: <span id="left"></p>
 
-<script>
+    <script type="text/javascript">
 
-var wins = 0, losses = 0; left = 10;
-var guessList = [];
-var alphabet = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
-var compChoice = alphabet[Math.floor(Math.random()*alphabet.length)];
+        var wins = 0, losses = 0; left = 10;
+        var guessList = [];
+        var alphabet = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
+        var compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+        console.log(compChoice);
 
-console.log(wins, losses, left);
-console.log(compChoice);
 
-    document.onkeyup = function (event) {
-        var userInput = event.key.toLowerCase();
-        if (userInput.toLocaleLowerCase() == compChoice) {
-            wins = wins + 1;
-            console.log(wins);
-            console.log("you are right!");
-        } else {
-            if (!guessList.includes(userInput)) {
-                guessList.push(userInput);
-                left = left - 1;
-                console.log(left);
-                if (left == 0) {
-                    console.log("game over");
-                    losses = losses + 1;
+        document.onkeyup = function (event) {
+            var userInput = event.key.toLowerCase();
+            if (userInput == compChoice) {
+                wins++;
+                console.log(wins);
+                console.log("you are right! wins: " + wins);
+                document.getElementById("win").innerHTML = wins;
+            } else {
+                if (!guessList.includes(userInput)) {
+                    guessList.push(userInput);
+                    left = left - 1;
+                    document.getElementById("user-list").innerHTML = guessList;
+                    document.getElementById("left").innerHTML = left;
+                    console.log(left);
+                    console.log(guessList);
+                    if (left == 0) {
+                        losses++;
+                        document.getElementById("loss").innerHTML = losses;
+                        console.log("game over! losses: " + losses);
+                    }
                 }
             }
         }
 
-    
-}
+    </script>
 
-</script>
-    
+
 </body>
+
 </html>
