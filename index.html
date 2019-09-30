@@ -11,34 +11,43 @@
 <h1>The Psychic Game</h1>
 <p>Guess what letter I am thinking of!</p>
 
-<p>Wins:</p>
-<p>Losses:</p>
-<p>Guesses left:</p>
-<p>Your guesses so far:</p>
+<p>Wins: <span id="win"></span></p>
+<p>Losses: <span id="loss"></span></p>
+<p>Guesses left: <span id="left"></p>
+<p>Your guesses so far: <span id="user-text"></span></p>
 
 <script>
 
 var wins = 0, losses = 0; left = 10;
-var attempts = [];
-var compLetter = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
-var compChoice = compLetter[Math.floor(Math.random()*compLetter.length)];
+var guessList = [];
+var alphabet = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
+var compChoice = alphabet[Math.floor(Math.random()*alphabet.length)];
 
 console.log(wins, losses, left);
 console.log(compChoice);
 
-document.onkeyup = function (event) {
-    var userInput = event.key.toLowerCase();
-    console.log(userInput);
-    if (!attempts.includes(userInput)) {
-    attempts.push(userInput);
-    }
-    console.log(attempts);
+    document.onkeyup = function (event) {
+        var userInput = event.key.toLowerCase();
+        if (userInput.toLocaleLowerCase() == compChoice) {
+            wins = wins + 1;
+            console.log(wins);
+            console.log("you are right!");
+        } else {
+            if (!guessList.includes(userInput)) {
+                guessList.push(userInput);
+                left = left - 1;
+                console.log(left);
+                if (left == 0) {
+                    console.log("game over");
+                    losses = losses + 1;
+                }
+            }
+        }
+
+    
 }
 
 </script>
-
-
-
     
 </body>
 </html>
