@@ -26,7 +26,6 @@
         function newGame() {
             var guessList = [];
             var compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-            console.log(compChoice);
             left = 10;
             document.getElementById("left").innerHTML = left;
             document.getElementById("user-list").innerHTML = guessList;
@@ -46,11 +45,8 @@
                         left = left - 1;
                         document.getElementById("user-list").innerHTML = guessList;
                         document.getElementById("left").innerHTML = left;
-                        console.log(left);
-                        console.log(guessList);
                         if (left == 0) {
                             losses++;
-                            console.log("game over! losses: " + losses);
                             newGame();
                         }
                     }
