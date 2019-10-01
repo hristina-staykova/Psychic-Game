@@ -20,7 +20,7 @@
 
     <script type="text/javascript">
 
-        var wins = 0, losses = 0; left = 10;
+        var wins = 0, losses = 0;
         var alphabet = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
 
         function newGame() {
@@ -39,7 +39,6 @@
                     wins++;
                     console.log(wins);
                     console.log("you are right! wins: " + wins);
-                    document.getElementById("win").innerHTML = wins;
                     newGame();
                 } else {
                     if (!guessList.includes(userInput)) {
@@ -51,7 +50,6 @@
                         console.log(guessList);
                         if (left == 0) {
                             losses++;
-                            document.getElementById("loss").innerHTML = losses;
                             console.log("game over! losses: " + losses);
                             newGame();
                         }
